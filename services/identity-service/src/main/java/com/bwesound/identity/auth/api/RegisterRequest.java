@@ -8,7 +8,7 @@ public record RegisterRequest(
 
         @NotBlank(message = "Недопустимый Email")
         @Email(message = "Недопустимый Email")
-        @Size(message = "Недопустимый Email")
+        @Size(max = 254, message = "Email слишком длинный")
         String email,
 
         @NotBlank(message = "Недопустимый пароль")

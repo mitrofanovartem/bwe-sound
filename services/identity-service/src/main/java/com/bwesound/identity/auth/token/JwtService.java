@@ -29,7 +29,7 @@ public class JwtService {
         Instant expiresAt = issuedAt.plus(jwtProperties.getAccessTokenTtl());
 
         String token = Jwts.builder()
-                .issuer("bwe-sound-identify")
+                .issuer("bwe-sound-identity")
                 .subject(user.getId().toString())
                 .id(UUID.randomUUID().toString())
                 .issuedAt(Date.from(issuedAt))

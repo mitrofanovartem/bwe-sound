@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import com.bwesound.identity.auth.LoginService;
 
 import java.util.UUID;
 
@@ -79,6 +80,7 @@ class AuthControllerTest {
                         .content("""
                                 {
                                   "email": "artem@example.com",
+                  \
                                   "password": "super-secure-password"
                                 }
                                 """))
@@ -86,4 +88,6 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.detail")
                         .value("Пользователь с таким email уже существует"));
     }
+    @MockitoBean
+    private LoginService loginService;
 }
